@@ -17,7 +17,7 @@ public class WeatherTestApplication_bot extends TelegramLongPollingBot {
 
     public void onUpdateReceived(Update update) {
 
-      //  System.out.println(update.getMessage().getText());
+     
         String command= update.getMessage().getText();
         SendMessage message = new SendMessage();
         System.out.println(update.getMessage().getText());
