@@ -17,6 +17,13 @@
             <artifactId>jackson-jaxrs-json-provider</artifactId>
             <version>2.12.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20201115</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
@@ -26,6 +33,12 @@
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
             <version>LATEST</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.4</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

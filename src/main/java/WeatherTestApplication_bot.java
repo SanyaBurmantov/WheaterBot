@@ -7,6 +7,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class WeatherTestApplication_bot extends TelegramLongPollingBot {
 
+
     public String getBotUsername() {
         return "weathertestapplication_bot";
     }
@@ -32,7 +33,12 @@ public class WeatherTestApplication_bot extends TelegramLongPollingBot {
             message.setChatId(update.getMessage().getChatId().toString());
             message.setText("сам иди "+update.getMessage().getFrom().getFirstName());
         }
+        if(command.equals("говно")) {
+            message.setChatId(update.getMessage().getChatId().toString());
+            message.setText("это ты говно,  " + update.getMessage().getFrom().getFirstName());
+        }
         if(command.equals("/погода")) {
+
             System.out.println("В разработке");
             message.setChatId(update.getMessage().getChatId().toString());
             message.setText("сори бро, пока не умею");
