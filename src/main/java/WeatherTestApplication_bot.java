@@ -2,11 +2,9 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-
-
+import services.Post_JSON;
 
 public class WeatherTestApplication_bot extends TelegramLongPollingBot {
-
 
     public String getBotUsername() {
         return "weathertestapplication_bot";
@@ -28,27 +26,53 @@ public class WeatherTestApplication_bot extends TelegramLongPollingBot {
         if(command.equals("как дела?")) {
             message.setChatId(update.getMessage().getChatId().toString());
             message.setText("Нормально");
+            try {
+                execute(message);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
         }
         if(command.equals("иди нахуй")) {
             message.setChatId(update.getMessage().getChatId().toString());
             message.setText("сам иди "+update.getMessage().getFrom().getFirstName());
+            try {
+                execute(message);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
         }
         if(command.equals("говно")) {
             message.setChatId(update.getMessage().getChatId().toString());
             message.setText("это ты говно,  " + update.getMessage().getFrom().getFirstName());
+            try {
+                execute(message);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
         }
         if(command.equals("/погода")) {
 
             System.out.println("В разработке");
             message.setChatId(update.getMessage().getChatId().toString());
-            message.setText("сори бро, пока не умею");
-
-        }
-        try {
-            execute(message);
+            message.setText("Вводи город братик");
+            Post_JSON.Post_JSON();
+            try {
+                execute(message);
             } catch (TelegramApiException e) {
-                e.printStackTrace();
+                e.printStackTrace();}
+
+            if (command != null){
+                update.getMessage().getText();
+                message.setChatId(update.getMessage().getChatId().toString());
+                message.setText("Отсоси, потом проси");
+
+                try {
+                    execute(message);
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
             }
+        }
 
     }
 }
