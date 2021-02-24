@@ -2,7 +2,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import services.Post_JSON;
+import services.PostJSON;
 
 public class WeatherTestApplication_bot extends TelegramLongPollingBot {
 
@@ -55,7 +55,7 @@ public class WeatherTestApplication_bot extends TelegramLongPollingBot {
             System.out.println("В разработке");
             message.setChatId(update.getMessage().getChatId().toString());
             message.setText("Вводи город братик");
-            Post_JSON.Post_JSON();
+            PostJSON.PostJSON();
             try {
                 execute(message);
             } catch (TelegramApiException e) {
