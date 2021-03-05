@@ -3,7 +3,7 @@ import telegram.StartBot;
 
 public class Main {
     public static void main(String[] args) throws TelegramApiException {
-        StartBot.Startbot();
+        StartBot.StartBot();
     }
 
 }
