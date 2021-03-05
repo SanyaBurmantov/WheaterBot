@@ -1,3 +1,5 @@
+package telegram;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
