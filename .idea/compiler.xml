@@ -9,10 +9,8 @@
         <module name="Wheater" />
       </profile>
     </annotationProcessing>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Wheater" options="" />
-    </option>
+    <bytecodeTargetLevel>
+      <module name="Wheater" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

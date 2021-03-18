@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
+import telegram.WeatherTestApplication_bot;
+
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
@@ -12,13 +14,17 @@ import java.net.URL;
 
 public class PostJSON {
 
+    private String findCity;
 
-    public static void PostJSON() {
+
+    public PostJSON(CityName cityName) {
+        findCity = cityName.getCityName();
+    }
+
+    public void postJson() {
 
     try {
-        String sityName = SityName.sityName;
-        String queryUrl = "https://api.openweathermap.org/data/2.5/weather?q="+sityName+"&appid=1990243e7312ae38fd862cbf71da0bc8";
-
+        String queryUrl = "https://api.openweathermap.org/data/2.5/weather?q="+findCity+"&appid=1990243e7312ae38fd862cbf71da0bc8";
         URL url = new URL(queryUrl);
         HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
         conn.setConnectTimeout(5000);
@@ -28,7 +34,6 @@ public class PostJSON {
         conn.setRequestMethod("POST");
 
         OutputStream os = conn.getOutputStream();
-        //os.write(json.getBytes("UTF-8"));
         os.close();
 
         //работа с ответом
@@ -65,17 +70,8 @@ public class PostJSON {
         ResponseUser.sky= jsonNode3;
         ResponseUser.speedWind=jsonNode4;
 
-
-
-
     }catch (Exception e){
         e.printStackTrace();
         }
-
     }
-
-
-
-
-
 }
